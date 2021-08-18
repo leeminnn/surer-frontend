@@ -1,0 +1,39 @@
+.list {
+  width: 300px;
+  margin: 1%;
+  background-color: #ebecf0;
+}
+
+.container {
+  background-color: #ebecf0;
+  padding-top: 10px;
+}
+
+.card {
+  background-color: #ebecf0;
+  padding: 5px 10px;
+}
+
+.header {
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.add_card_inner {
+  display: flex;
+  align-items: center;
+}
+
+.paper {
+  padding: 10px 20px;
+}
+
+.add_card {
+  background-color: #ebecf0;
+  padding: 5px 10px;
+}
+
+.input {
+  padding-bottom: 20px;
+}
