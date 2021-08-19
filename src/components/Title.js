@@ -4,8 +4,8 @@ import { FaEllipsisH } from 'react-icons/fa';
 import './List.css';
 
 
-function Title(){
-    const [name, setName] = useState('Todo');
+function Title({title}){
+    const [name, setName] = useState(title);
 
     function onChangeText(e) {
         setName(e.target.value)

@@ -1,12 +1,12 @@
 .list {
   width: 300px;
   margin: 1%;
-  background-color: #ebecf0;
+  /* background-color: #ebecf0; */
 }
 
 .container {
   background-color: #ebecf0;
-  padding-top: 10px;
+  /* padding-top: 10px; */
 }
 
 .card {
@@ -30,10 +30,17 @@
 }
 
 .add_card {
-  background-color: #ebecf0;
-  padding: 5px 10px;
+  /* background-color: #ebecf0; */
+  margin: 5px 10px;
+  width: 280px;
 }
 
 .input {
   padding-bottom: 20px;
+}
+
+.column {
+  display: flex;
+  min-height: 100vh;
+  background: green;
 }

@@ -13,13 +13,13 @@ const useStyles = makeStyles(theme => ({
     }
     }));
 
-function InputContainer() {
+function InputContainer({listId, type}) {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     return (
         <div className='add_card'>
             <Collapse in={open}>
-                <InputCard setOpen={setOpen}/>
+                <InputCard setOpen={setOpen} listId={listId} type={type}/>
             </Collapse>
             <Collapse in={!open}>
                 <Paper 
@@ -28,7 +28,7 @@ function InputContainer() {
                     onClick={()=>setOpen(!open)}
                 >
                     <Typography>
-                        + Add a Card
+                        {type==='card'?'+ Add a Card':'+ Add another List'}
                     </Typography>
                 </Paper>
             </Collapse>

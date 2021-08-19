@@ -1,9 +1,9 @@
 import { Paper, InputBase, Button, alpha } from '@material-ui/core';
-import React from 'react';
+import React, { useState, useContext} from 'react';
 import { MdClose } from 'react-icons/md';
 import '../components/List.css';
 import {makeStyles} from '@material-ui/core'
-
+import storeAPI from '../utils/storeAPI';
 
 const useStyles = makeStyles(theme => ({
     paperRoot: {
@@ -21,8 +21,25 @@ const useStyles = makeStyles(theme => ({
     }
     }));
 
-function InputCard({ setOpen }) {
+function InputCard({ setOpen, listId , type}) {
     const classes = useStyles();
+    const { addCard, addList } = useContext(storeAPI);
+    const [title, setTitle] = useState('');
+    const handleOnChange =(e) => {
+        setTitle(e.target.value)
+    };
+    const handleBtnCLick =()=>{
+        if (type === 'card') {
+            addCard(title, listId)
+            setTitle('')
+            setOpen(false)
+        }
+        else{
+            addList(title);
+            setTitle('');
+            setOpen(false);
+        }
+    }
     return (
         <div>
             <div className='input'>
@@ -30,19 +47,22 @@ function InputCard({ setOpen }) {
                     <InputBase 
                     multiline 
                     onBlur={()=>setOpen(false)}
-                    placeholder="Enter title of this card..."
+                    placeholder={ type==='card'?"Enter title of this card...":"Enter list title..."}
                     inputProps={{
                         className: classes.input
                     }}
+                    onChange={handleOnChange}
+                    value={title}
                 />
                 </Paper>
             </div>
             <div className='add_card_inner'>
                 <Button 
                     className={classes.button}
-                    onClick={()=>setOpen(false)}
+                    onClick={handleBtnCLick}
                 >                    
-                Add card</Button>
+                    {type ==='card'?"Add Card":"Add List"}
+                </Button>
                 <MdClose onClick={()=>setOpen(false)}/>
             </div>
         </div>
