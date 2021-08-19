@@ -40,6 +40,7 @@ function Title({title, description}){
                         disableUnderline: true,
                         style: {fontSize: '13px'}
                     }}
+                    placeholder='Enter description'
                 />
             </div>
         </div>

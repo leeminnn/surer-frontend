@@ -28,7 +28,7 @@ function InputContainer({listId, type}) {
                     onClick={()=>setOpen(!open)}
                 >
                     <Typography>
-                        {type==='card'?'+ Add a Card':'+ Add another List'}
+                        {type==='card'?'+ Add a Card':'+ Add another Board'}
                     </Typography>
                 </Paper>
             </Collapse>

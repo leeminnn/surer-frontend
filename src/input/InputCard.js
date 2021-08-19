@@ -47,7 +47,7 @@ function InputCard({ setOpen, listId , type}) {
                     <InputBase 
                     multiline 
                     onBlur={()=>setOpen(false)}
-                    placeholder={ type==='card'?"Enter title of this card...":"Enter list title..."}
+                    placeholder={ type==='card'?"Enter title of this card...":"Enter board title..."}
                     inputProps={{
                         className: classes.input
                     }}
@@ -61,7 +61,7 @@ function InputCard({ setOpen, listId , type}) {
                     className={classes.button}
                     onClick={handleBtnCLick}
                 >                    
-                    {type ==='card'?"Add Card":"Add List"}
+                    {type ==='card'?"Add Card":"Add Board"}
                 </Button>
                 <MdClose onClick={()=>setOpen(false)}/>
             </div>
