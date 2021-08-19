@@ -10,7 +10,6 @@ function Card({card, index}) {
 
     return (
         <Draggable draggableId={card.id} index={index}>
-            
             {(provided) =>(
                 <div className='card'
                     ref={provided.innerRef} 

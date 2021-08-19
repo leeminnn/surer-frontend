@@ -4,26 +4,43 @@ import { FaEllipsisH } from 'react-icons/fa';
 import '../css/style.css'
 
 
-function Title({title}){
+function Title({title, description}){
     const [name, setName] = useState(title);
+    const [describe, setDescription] = useState(description);
 
-    function onChangeText(e) {
+    function onChangeTitle(e) {
         setName(e.target.value)
-        console.log(name)
+    }
+
+    function onChangeDescription(e) {
+        setDescription(e.target.value)
     }
 
     return (
         <div className='container'>
             <div className='header'>
                 <TextField 
+                    fontWeight="fontWeightBold"
                     id="standard-basic" 
                     value={name} 
-                    onChange={onChangeText}
+                    onChange={onChangeTitle}
                     InputProps={{
                         disableUnderline: true,
+                        style: {fontWeight: 'bold'}
                     }}
                 />
                 <FaEllipsisH/>
+            </div>
+            <div className='header'>
+                <TextField 
+                    id="standard-basic" 
+                    value={describe} 
+                    onChange={onChangeDescription}
+                    InputProps={{
+                        disableUnderline: true,
+                        style: {fontSize: '13px'}
+                    }}
+                />
             </div>
         </div>
     )

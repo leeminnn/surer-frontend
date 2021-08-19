@@ -14,7 +14,7 @@ function List({list, index}) {
                 <div className='list'{...provided.draggableProps} ref={provided.innerRef}> 
                     <Paper {...provided.dragHandleProps}>
                         <CssBaseline/>
-                        <Title title={list.title} listId={list.id}/>
+                        <Title title={list.title} listId={list.id} description={list.description}/>
                         <Droppable droppableId={list.id}>
                             {(provided)=>(
                                 <div
