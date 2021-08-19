@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import { FaEllipsisH } from 'react-icons/fa';
-import './List.css';
+import '../css/style.css'
 
 
 function Title({title}){

@@ -6,7 +6,7 @@ import InputCard from'./InputCard';
 
 const useStyles = makeStyles(theme => ({
     paperRoot: {
-        backgroundColor:' #ebecf0',
+        width: 'auto',
         '&:hover':{
             backgroundColor:alpha('#000', 0.25)
         }

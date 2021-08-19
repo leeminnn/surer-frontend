@@ -1,16 +1,15 @@
 .list {
   width: 300px;
   margin: 1%;
-  /* background-color: #ebecf0; */
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .container {
   background-color: #ebecf0;
-  /* padding-top: 10px; */
 }
 
 .card {
-  background-color: #ebecf0;
   padding: 5px 10px;
 }
 
@@ -30,9 +29,9 @@
 }
 
 .add_card {
-  /* background-color: #ebecf0; */
-  margin: 5px 10px;
-  width: 280px;
+  padding: 10px 20px;
+  width: 100%;
+  min-width: 200px;
 }
 
 .input {
@@ -42,5 +41,16 @@
 .column {
   display: flex;
   min-height: 100vh;
-  background: green;
+}
+
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+}
+
+.navbar {
+  padding-left: 20px;
+  padding-right: 20px;
 }

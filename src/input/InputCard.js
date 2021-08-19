@@ -1,7 +1,7 @@
 import { Paper, InputBase, Button, alpha } from '@material-ui/core';
 import React, { useState, useContext} from 'react';
 import { MdClose } from 'react-icons/md';
-import '../components/List.css';
+import '../css/style.css';
 import {makeStyles} from '@material-ui/core'
 import storeAPI from '../utils/storeAPI';
 
