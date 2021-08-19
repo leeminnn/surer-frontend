@@ -5,7 +5,7 @@ import InputContainer from './input/InputContainer';
 import store from './utils/store';
 import storeAPI from './utils/storeAPI'
 import './components/List.css'
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 function App() {
   const [data, setData] = useState(store);
@@ -46,10 +46,16 @@ function App() {
     setData(newState);
   }
   const onDragEnd = (result) => {
-    const {destination, source, draggableId} = result;
+    const {destination, source, draggableId, type} = result;
     // console.log('destination', destination, 'source', source, draggableId)
 
     if (!destination){
+      return ;
+    }
+    if (type ==='list'){
+      const newListIds = data.listIds;
+      newListIds.splice(source.index,1)
+      newListIds.splice(destination.index,0, draggableId)
       return ;
     }
     const sourceList = data.lists[source.droppableId];
@@ -68,19 +74,37 @@ function App() {
         }
       };
       setData(newState)
+    } else {
+      sourceList.cards.splice(source.index,1);
+      destinationList.cards.splice(destination.index,0,draggingCard)
+
+      const newState ={
+        ...data,
+        lists:{
+          ...data.lists,
+          [sourceList.id]:sourceList,
+          [destinationList.id]:destinationList
+        }
+      };
+      setData(newState)
     }
   }
 
   return (
     <storeAPI.Provider value={{addCard, addList}}>
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className='column'>
-          {data.listIds.map((listIds)=> {
-            const list = data.lists[listIds];
-            return <List list = {list} key={listIds}/>
-          })}
-          <InputContainer type='list'/>
-        </div>
+        <Droppable droppableId='app' type='list' direction='horizontal'>
+          {(provided) =>(
+            <div className='column' ref={provided.innerRef}{...provided.droppableProps}>
+            {data.listIds.map((listIds, index)=> {
+              const list = data.lists[listIds];
+              return <List list = {list} key={listIds} index={index}/>
+            })}
+            <InputContainer type='list'/>
+            {provided.placeholder}
+          </div>
+          )}
+        </Droppable>
       </DragDropContext>
     </storeAPI.Provider>
 
