@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {alpha, Paper, Typography, Collapse} from '@material-ui/core';
+import {alpha, Paper, Typography, Collapse,Button } from '@material-ui/core';
 import '../components/List';
 import {makeStyles} from '@material-ui/core'
 import InputCard from'./InputCard';
@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     }
     }));
 
-function InputContainer({listId, type}) {
+function InputContainer({listId, type, disable}) {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     return (
@@ -22,15 +22,20 @@ function InputContainer({listId, type}) {
                 <InputCard setOpen={setOpen} listId={listId} type={type}/>
             </Collapse>
             <Collapse in={!open}>
-                <Paper 
-                    className={classes.paperRoot} 
-                    elevation={0}
-                    onClick={()=>setOpen(!open)}
+                <Button 
+                disabled={disable}
                 >
-                    <Typography>
-                        {type==='card'?'+ Add a Card':'+ Add another Board'}
-                    </Typography>
-                </Paper>
+                    <Paper 
+                        className={classes.paperRoot} 
+                        elevation={0}
+                        onClick={()=>setOpen(!open)}
+                    >
+                        <Typography>
+                            {type==='card'?'+ Add a Card':'+ Add another Board'}
+                        </Typography>
+                    </Paper>
+                </Button>
+                
             </Collapse>
         </div>
     )

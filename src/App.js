@@ -18,7 +18,7 @@ function App() {
     };
 
     const list = data.lists[listId];
-    list.cards = [... list.cards, newCard] //use spread operator to get the previous data and add new card inside
+    list.cards = [...list.cards, newCard] //use spread operator to get the previous data and add new card inside
   
     const newState = {
       ...data,
@@ -83,7 +83,6 @@ function App() {
       } else {
         sourceList.cards.splice(source.index,1);
         destinationList.cards.splice(destination.index,0,draggingCard)
-        console.log('success')
         const newState ={
           ...data,
           lists:{
@@ -107,9 +106,16 @@ function App() {
               <div className='column' ref={provided.innerRef}{...provided.droppableProps}>
                 {data.listIds.map((listIds, index)=> {
                   const list = data.lists[listIds];
+                  const cardLength = list.cards.length;
+                  
+                  if (cardLength === 6 ) {
+                    var disable = true;
+                  } else {
+                    var disable = false;
+                  }
                   return (
                     <Col md={3}>
-                      <List list = {list} key={listIds} index={index}/>
+                      <List list = {list} key={listIds} index={index} disable={disable}/>
                     </Col>
                   )
                 })}
