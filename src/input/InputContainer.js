@@ -31,7 +31,7 @@ function InputContainer({listId, type, disable}) {
                         onClick={()=>setOpen(!open)}
                     >
                         <Typography>
-                            {type==='card'?'+ Add a Card':'+ Add another Board'}
+                            {type==='card'?'+ Add a Card':'+ Add another Column'}
                         </Typography>
                     </Paper>
                 </Button>

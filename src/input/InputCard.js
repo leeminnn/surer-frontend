@@ -45,13 +45,14 @@ function InputCard({ setOpen, listId , type}) {
             <div className='input'>
                 <Paper className={classes.paperRoot}>
                     <InputBase 
+                    onChange={handleOnChange}
                     multiline 
                     onBlur={()=>setOpen(false)}
-                    placeholder={ type==='card'?"Enter title of this card...":"Enter board title..."}
+                    placeholder={ type==='card'?"Enter title of this card...":"Enter column title..."}
                     inputProps={{
                         className: classes.input
                     }}
-                    onChange={handleOnChange}
+                    
                     value={title}
                 />
                 </Paper>
@@ -61,7 +62,7 @@ function InputCard({ setOpen, listId , type}) {
                     className={classes.button}
                     onClick={handleBtnCLick}
                 >                    
-                    {type ==='card'?"Add Card":"Add Board"}
+                    {type ==='card'?"Add Card":"Add Column"}
                 </Button>
                 <MdClose onClick={()=>setOpen(false)}/>
             </div>

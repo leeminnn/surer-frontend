@@ -10,7 +10,7 @@ function Card({card, index, list, sendDataToParent}) {
 
     function hide(){
         const lucky = list.cards.filter(function(number) {
-            return number != card;
+            return number !== card;
           });
         list.cards = lucky;
         sendDataToParent(list)
