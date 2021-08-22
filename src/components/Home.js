@@ -8,9 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 
 function Home() {
-    // window.onunload = function () {
-    //     localStorage.removeItem('boardObject');
-    // }
+    window.onunload = function () {
+        localStorage.removeItem('boardObject');
+    }
 
     var boardList = localStorage.getItem('boardObject');
     if (boardList == null){
