@@ -6,7 +6,7 @@
 
 This command installs a package and any packages that it depends on.
 
-### Step 1
+### Step 2
 
 ### `npm start`
 
