@@ -1,5 +1,7 @@
 # How to run on localhost
 
+After download of zip file is complete, extract all and save it to a location. Open terminal or source code editor and go to the location where the file is stored. Go to folder directory where src folder is stored. Once done enter the commands below.
+
 ### Step 1
 
 ### `npm install`
