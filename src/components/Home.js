@@ -8,11 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 
 function Home() {
-    window.onunload = function () {
-        localStorage.removeItem('boardObject');
-    }
-
-    var boardList = localStorage.getItem('boardObject');
+    var boardList = sessionStorage.getItem('boardObject');
     if (boardList == null){
         boardList=[]
     }else {
@@ -88,7 +84,7 @@ function Home() {
                                 <div style={{fontSize:'10px'}}>
                                     <Link to={`/${e.name}`} 
                                         style={{ textDecoration: 'none' }}
-                                        onClick={()=>localStorage.setItem('boardObject', JSON.stringify(board))}
+                                        onClick={()=>sessionStorage.setItem('boardObject', JSON.stringify(board))}
                                     >
                                             Click here to view board
                                     </Link>

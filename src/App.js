@@ -13,7 +13,7 @@ import TextField from '@material-ui/core/TextField';
 
 
 function App( {match}) {
-  const boardList = JSON.parse(localStorage.getItem('boardObject'));
+  const boardList = JSON.parse(sessionStorage.getItem('boardObject'));
   const valueStorage = boardList.filter(boardList => boardList.name === match.params.board)
   const [titleName, setTitleName] = useState(valueStorage[0].name)
   const [titleDescription, setTitleDescription] = useState(valueStorage[0].description)
@@ -38,8 +38,8 @@ function App( {match}) {
   function updateStorage(){
     const newValue = {name: titleName, description: titleDescription}
     newList.push(newValue)
-    localStorage.removeItem('boardObject');
-    localStorage.setItem('boardObject', JSON.stringify(newList))
+    sessionStorage.removeItem('boardObject');
+    sessionStorage.setItem('boardObject', JSON.stringify(newList))
   }
 
   const [data, setData] = useState(store);
