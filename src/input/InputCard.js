@@ -1,8 +1,8 @@
 import { Paper, InputBase, Button, alpha } from '@material-ui/core';
-import React, { useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import { MdClose } from 'react-icons/md';
 import '../css/style.css';
-import {makeStyles} from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import storeAPI from '../utils/storeAPI';
 
 const useStyles = makeStyles(theme => ({
@@ -12,29 +12,29 @@ const useStyles = makeStyles(theme => ({
     input: {
         margin: theme.spacing(1),
     },
-    button :{
-        backgroundColor: '#12824C', 
+    button: {
+        backgroundColor: '#12824C',
         color: '#FFFFFF',
         '&:hover': {
             backgroundColor: alpha('#12824C', 0.75)
         }
     }
-    }));
+}));
 
-function InputCard({ setOpen, listId , type}) {
+function InputCard({ setOpen, listId, type }) {
     const classes = useStyles();
     const { addCard, addList } = useContext(storeAPI);
     const [title, setTitle] = useState('');
-    const handleOnChange =(e) => {
+    const handleOnChange = (e) => {
         setTitle(e.target.value)
     };
-    const handleBtnCLick =()=>{
+    const handleBtnCLick = () => {
         if (type === 'card') {
             addCard(title, listId)
             setTitle('')
             setOpen(false)
         }
-        else{
+        else {
             addList(title);
             setTitle('');
             setOpen(false);
@@ -44,30 +44,29 @@ function InputCard({ setOpen, listId , type}) {
         <div>
             <div className='input'>
                 <Paper className={classes.paperRoot}>
-                    <InputBase 
-                    onChange={handleOnChange}
-                    multiline 
-                    onBlur={()=>setOpen(false)}
-                    placeholder={ type==='card'?"Enter title of this card...":"Enter column title..."}
-                    inputProps={{
-                        className: classes.input
-                    }}
-                    
-                    value={title}
-                />
+                    <InputBase
+                        onChange={handleOnChange}
+                        multiline
+                        placeholder={type === 'card' ? "Enter title of this card..." : "Enter column title..."}
+                        inputProps={{
+                            className: classes.input
+                        }}
+
+                        value={title}
+                    />
                 </Paper>
             </div>
             <div className='add_card_inner'>
-                <Button 
+                <Button
                     className={classes.button}
                     onClick={handleBtnCLick}
-                >                    
-                    {type ==='card'?"Add Card":"Add Column"}
+                >
+                    {type === 'card' ? "Add Card" : "Add Column"}
                 </Button>
-                <MdClose onClick={()=>setOpen(false)}/>
+                <MdClose onClick={() => setOpen(false)} />
             </div>
         </div>
-        
+
     )
 }
 
